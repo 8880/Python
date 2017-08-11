@@ -1,0 +1,12 @@
+Fri, 04 Aug 2017 09:54:18 log.py [line:16] DEBUG debug message
+Fri, 04 Aug 2017 09:54:18 log.py [line:17] INFO info message
+Fri, 04 Aug 2017 09:55:18 log.py [line:16] DEBUG debug message
+Fri, 04 Aug 2017 09:55:18 log.py [line:17] INFO info message
+Fri, 04 Aug 2017 09:55:18 log.py [line:18] WARNING warning message
+Fri, 04 Aug 2017 09:55:18 log.py [line:19] ERROR error message
+Fri, 04 Aug 2017 09:55:18 log.py [line:20] CRITICAL critical message
+Fri, 04 Aug 2017 09:58:16 log.py [line:16] DEBUG debug message
+Fri, 04 Aug 2017 09:58:16 log.py [line:17] INFO info message
+Fri, 04 Aug 2017 09:58:16 log.py [line:18] WARNING warning message
+Fri, 04 Aug 2017 09:58:16 log.py [line:19] ERROR error message
+Fri, 04 Aug 2017 09:58:16 log.py [line:20] CRITICAL critical message
