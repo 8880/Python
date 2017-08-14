@@ -19,9 +19,22 @@ def getconnect(url):
     r = re.findall(reg,text)
     print r1[0]
     for i in r:
-        f1 = open(r1[0],'a')
-        f1.writelines(i+'\n')
-    f1.close()
+        i
+    return i
+
+
+class Sql(object):
+    db = MySQLdb.connect('localhost','root','123','book',charset='utf8')
+
+    def insert(self,title,content):
+        cur = self.db.cursor()
+        cur.execute('insert into books values(NULL, "%s", "%s")'%(title, content))
+        cur.close()
+        self.db.commit()
+
+mysql = Sql()
 
 for i in getlist():
-    getconnect(i[0])
+    title = i[1]
+    content = getconnect(i[0])
+    mysql.insert(title, content)

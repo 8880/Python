@@ -14,14 +14,26 @@ def getconnect(url):
     html = urllib.urlopen('http://www.quanshuwang.com/book/9/9055/'+url).read()
     text = html.decode('gbk').encode('utf8')
     reg1 = r'</em><strong class="l jieqi_title">(.*?)</strong>'
-    reg = r'&nbsp;&nbsp;&nbsp;&nbsp;([^<]*)'
+    reg = r'style5\(\);</script>((.|\n)*?)<script type="text/javascript">'
+    reg = re.compile(reg)
     r1 = re.findall(reg1, text)
-    r = re.findall(reg,text)
+    b = re.findall(reg,text)[0]
     print r1[0]
-    for i in r:
-        f1 = open(r1[0],'a')
-        f1.writelines(i+'\n')
-    f1.close()
+    return b[0]
+
+class Sql(object):
+    db = MySQLdb.connect('localhost','root','123','book',charset='utf8')
+
+    def insert(self,title,content):
+        cur = self.db.cursor()
+        cur.execute('insert into books values(NULL, "%s", "%s")'%(title, content))
+        cur.close()
+        self.db.commit()
+
+mysql = Sql()
 
 for i in getlist():
-    getconnect(i[0])
+    title = i[1]
+    content = getconnect(i[0])
+    mysql.insert(title, content)
+    break
